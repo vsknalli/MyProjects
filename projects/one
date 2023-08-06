@@ -161,7 +161,21 @@ the image to DockerHub and from DockerHub the docker host is going to pull this 
 Using Ansible to create Containers:
 ===================================
 
+In Ansible server below /opt/docker Here we have our anisble-playbook named regapp.yaml and Dockerfile and app artifactory
 
+in this regapp-yaml ansible play-book we need to modify some tasks one is for taging and push the image to dockerHub
+
+
+====================================================
+---
+ - hosts: ansible
+   tasks:
+     - name: Create docker image
+       command: docker build -t regapp:latest .
+       args:
+         chdir: /opt/docker
+
+======================================================
 
 
 
